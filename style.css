@@ -1,24 +1,87 @@
 /* public/styles.css */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #000;
-    color: #fff;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(65, 105, 225, 1), rgba(200, 162, 200, 1)); /* Black, royal blue, lilac gradient */
+    color: #FFFFFF; /* White text for contrast */
     margin: 0;
     padding: 0;
+}
+
+.link-checker {
+    text-align: center;
+    position: relative;
+}
+
+.link-checker input {
+    width: 50%;
+    padding: 10px;
+    margin: 20px auto;
+    display: block;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-button {
+    padding: 10px;
+}
+
+.menu-options {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.menu-options a {
+    display: block;
+    color: #FFFFFF;
+    margin: 5px 0;
+}
+
+.social-icons img {
+    width: 30px; /* Adjust size as needed */
+    margin-right: 10px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    display: none; /* Initially hidden */
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 15px 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
     font-size: 1.5em;
-    color: neon-green;
+    color: #4169E1; /* Royal blue */
 }
 
 .nav-links {
@@ -32,31 +95,60 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: neon-red;
+    color: #FFFFFF; /* White text */
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #ffcc00; /* Yellow on hover */
+    color: #DDA0DD; /* Lilac on hover */
 }
 
-.container {
-    background-color: #222;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    margin: 50px auto;
+.progress-container {
+    width: 100%;
+    background-color: #444; /* Dark background for the progress bar */
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0; /* Space around the progress bar */
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #4169E1; /* Royal blue for the progress */
+    width: 0%; /* Initial width */
+    transition: width 0.5s; /* Smooth transition for progress */
+}
+
+.phishing-scams {
+    margin-top: 20px; /* Space above the phishing scams section */
+    color: #FFFFFF; /* White text for readability */
+}
+
+.scam {
+    margin: 10px 0; /* Space between scam items */
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.scam img {
+    width: 100px; /* Fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.info-section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    color: #FFFFFF; /* Ensure text is readable */
     transition: transform 0.3s;
 }
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
-    color: neon-green;
+    color: #FFFFFF; /* White text */
 }
 
 p {
@@ -68,6 +160,11 @@ input {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 2px solid neon-green;
+    border: 2px solid royalblue;
     border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: lilac; /* Change border color on focus */
 }
