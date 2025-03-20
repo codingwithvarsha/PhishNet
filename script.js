@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const getStartedBtn = document.getElementById("getStartedBtn");
     const inputSection = document.getElementById("inputSection");

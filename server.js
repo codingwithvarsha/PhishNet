@@ -1,3 +1,4 @@
+
 // server.js
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -46,3 +47,4 @@ app.post('/check-url', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
