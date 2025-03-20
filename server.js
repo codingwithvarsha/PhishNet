@@ -5,7 +5,10 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+require('dotenv').config(); // Load environment variables from .env file
+
+const PORT = process.env.PORT || 3000; 
+
 
 // Replace with your Google Safe Browsing API key
 const GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY';
@@ -37,7 +40,9 @@ app.post('/check-url', async (req, res) => {
             res.json({ isPhishing: false });
         }
     } catch (error) {
-        console.error(error);
+        console.error(error); // Log the error for debugging
+        res.status(500).json({ error: 'Error checking URL. Please try again later.' });
+
         res.status(500).json({ error: 'Error checking URL' });
     }
 });
