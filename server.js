@@ -3,12 +3,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-// Replace with your Google Safe Browsing API key
-const GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY';
+
+GOOGLE_SAFE_BROWSING_API= 'AIzaSyAKPvKL3MdSlt1s4BcrbBbtZzZl9R3_gSc';
 
 app.use(cors());
 app.use(bodyParser.json());

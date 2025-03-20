@@ -3,49 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhishNet - Phishing Link Detector</title>
+    <title>PhishNet</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">PhishNet</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#how-to-solve">How to Solve</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <h1>Phishing Link Detector</h1>
-        <p>Check if a URL is safe or potentially harmful.</p>
-        <input type="text" id="urlInput" placeholder="Enter URL to check" required>
-        <button id="checkButton">Check URL</button>
-        <div id="result" class="result"></div>
-    </div>
-    <section id="about" class="info-section">
-        <h2>About PhishNet</h2>
-        <p>PhishNet is a powerful tool designed to help users identify potentially harmful URLs and protect themselves from phishing attacks.</p>
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="logo">PhishNet<span>.</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#" id="input-link">Input</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>PhishNet</h3>
+            <span>Phishing Link Detector</span>
+            <p>Detect phishing scams effectively. Use the link checker below to verify URLs.</p>
+            <a href="#inputSection" class="btn" id="getStartedBtn">Get Started</a>
+        </div>
     </section>
-    <section id="features" class="info-section">
-        <h2>Features</h2>
-        <ul>
-            <li>Real-time URL scanning</li>
-            <li>Integration with Google Safe Browsing API</li>
-            <li>User-friendly interface</li>
-            <li>Instant feedback on URL safety</li>
-        </ul>
+
+    <!-- Input Section -->
+    <section class="input-section" id="inputSection">
+        <div class="container">
+            <h1>Welcome to PhishNet</h1>
+            <p>Enter a URL to check for phishing threats.</p>
+            
+            <div class="link-checker">
+                <input type="text" id="urlInput" placeholder="Enter URL to check">
+                <button id="checkButton">Check URL</button>
+            </div>
+
+            <!-- Back Button -->
+            <button id="backButton" class="btn back-btn">Back</button>
+
+            <div id="scamCount" style="display: none;"></div>
+        </div>
     </section>
-    <section id="how-to-solve" class="info-section">
-        <h2>How to Solve If Malicious</h2>
-        <p>If a URL is detected as malicious, follow these steps:</p>
-        <ol>
-            <li>Do not click on the link.</li>
-            <li>Report the URL to your email provider or browser.</li>
-            <li>Use a reputable antivirus or anti-malware tool to scan your device.</li>
-            <li>Educate yourself about phishing tactics to avoid future attacks.</li>
-        </ol>
-    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
