@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 3000;
 
 
 // Replace with your Google Safe Browsing API key
-const GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY';
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY; // Use the API key from environment variables
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -43,7 +44,6 @@ app.post('/check-url', async (req, res) => {
         console.error(error); // Log the error for debugging
         res.status(500).json({ error: 'Error checking URL. Please try again later.' });
 
-        res.status(500).json({ error: 'Error checking URL' });
     }
 });
 
