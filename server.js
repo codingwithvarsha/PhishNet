@@ -15,14 +15,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Root route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html','style.css','script.js'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+
 });
 
 // Google Safe Browsing API key
 const GOOGLE_API_KEY = 'AIzaSyAKPvKL3MdSlt1s4BcrbBbtZzZl9R3_gSc';
 
 // Route to check if a URL is malicious
-app.post('/check-url', async (req, res) => {
+app.post('/check', async (req, res) => {
+
     const { url } = req.body;
 
     try {

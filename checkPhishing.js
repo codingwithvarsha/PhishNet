@@ -17,5 +17,4 @@ async function checkPhishing(url) {
     return { isPhishing: isSuspicious };
 }
 
-
 module.exports = checkPhishing;
