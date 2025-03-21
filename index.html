@@ -3,52 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Detection</title>
+    <title>PhishNet</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="logo">PhishNet</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li>
-                <a href="#" class="menu-button">Menu</a>
-                <div class="menu-options" style="display: none;">
-                    <a href="#">Phishing Scams</a>
-                    <a href="#">Features of PhishNet</a>
-                    <a href="#">How to solve the issues of malicious links</a>
-                </div>
-            </li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </div>
-    <div class="container" style="padding-bottom: 50px;">
-        <h1>Welcome to PhishNet</h1>
-        <p>Detect phishing scams effectively. Use the link checker below to verify URLs.</p>
-        
-        <!-- Link Checker Section -->
-        <div class="link-checker" style="text-align: center;">
-            <input type="text" id="urlInput" placeholder="Enter URL to check" style="width: 50%; padding: 10px; margin: 20px auto; display: block;">
-            <button id="checkButton" style="padding: 10px 20px;">Check URL</button>
-        </div>
-        <div id="scamCount" style="display: none;"></div>
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="logo">PhishNet<span>.</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#" id="input-link">Input</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
 
-        <!-- Progress Bar -->
-        <div class="phishing-scams">
-            <h2>Phishing Scams</h2>
-            <p style="font-size: 1.5em; color: #FFFFFF;">Is your link safe? Check on PhishNet.</p>
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>PhishNet</h3>
+            <span>Phishing Link Detector</span>
+            <p>Detect phishing scams effectively. Use the link checker below to verify URLs.</p>
+            <a href="#inputSection" class="btn" id="getStartedBtn">Get Started</a>
         </div>
-        
-        <footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.8);">
-            <p>&copy; 2023 PhishNet. All rights reserved.</p>
-            <div class="social-icons">
-                <a href="#"><img src="path/to/x-icon.png" alt="X"></a>
-                <a href="#"><img src="path/to/instagram-icon.png" alt="Instagram"></a>
-                <a href="#"><img src="path/to/linkedin-icon.png" alt="LinkedIn"></a>
+    </section>
+
+    <!-- Input Section -->
+    <section class="input-section" id="inputSection">
+        <div class="container">
+            <h1>Welcome to PhishNet</h1>
+            <p>Enter a URL to check for phishing threats.</p>
+            
+            <div class="link-checker">
+                <input type="text" id="urlInput" placeholder="Enter URL to check">
+                <button id="checkButton">Check URL</button>
             </div>
-        </footer>
-    </div>
+
+            <!-- Back Button -->
+            <button id="backButton" class="btn back-btn">Back</button>
+
+            <div id="scamCount" style="display: none;"></div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
 </html>
+

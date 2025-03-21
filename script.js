@@ -1,84 +1,70 @@
-let scamCount = 0;
 
-function updateScamCount() {
-    scamCount++;
-    const scamCountDisplay = document.getElementById('scamCount');
-    scamCountDisplay.innerText = `Total Phishing Scams: ${scamCount}`;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const getStartedBtn = document.getElementById("getStartedBtn");
+    const inputSection = document.getElementById("inputSection");
+    const backButton = document.getElementById("backButton");
+    const checkButton = document.getElementById("checkButton");
+    const urlInput = document.getElementById("urlInput");
+    const resultDiv = document.getElementById("result");
 
-function updateProgressBar(value) {
-    const progressBar = document.getElementById('progressBar');
-    progressBar.style.width = value + '%';
-}
+    getStartedBtn.addEventListener("click", function () {
+        inputSection.style.display = "block";
+        inputSection.scrollIntoView({ behavior: "smooth" });
+    });
 
-let progress = 0;
-const interval = setInterval(() => {
-    if (progress >= 100) {
-        clearInterval(interval);
-    } else {
-        progress += 10; // Increment progress
-        updateProgressBar(progress);
-        updateScamCount(); // Update scam count with animation
-    }
-}, 500); // Update every 500ms
+    backButton.addEventListener("click", function () {
+        inputSection.style.display = "none";
+        document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    });
 
-function toggleMenu() {
-    const menuOptions = document.querySelector('.menu-options');
-    menuOptions.style.display = menuOptions.style.display === 'none' ? 'block' : 'none';
-}
+    checkButton.addEventListener("click", async function () {
+        const url = urlInput.value.trim();
+        if (!url) {
+            resultDiv.textContent = "Please enter a URL.";
+            resultDiv.style.color = "red";
+            return;
+        }
 
-document.querySelector('.menu-button').addEventListener('click', function() {
-    const menuOptions = document.querySelector('.menu-options');
-    menuOptions.style.display = menuOptions.style.display === 'none' ? 'block' : 'none';
-});
+        resultDiv.textContent = "Checking...";
+        resultDiv.style.color = "black";
 
-document.querySelectorAll('.menu-options a').forEach(option => {
-    option.addEventListener('click', function() {
-        // Load content based on the selected option
-        const content = this.innerText;
-        alert(`You selected: ${content}`);
+        try {
+            const response = await fetch('/check-url', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url }),
+            });
+
+            const data = await response.json();
+            if (data.isPhishing) {
+                resultDiv.textContent = "⚠️ This link may be a phishing link!";
+                resultDiv.style.color = "red";
+            } else {
+                resultDiv.textContent = "✅ This link seems safe.";
+                resultDiv.style.color = "green";
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            resultDiv.textContent = "Error checking URL. Please try again.";
+            resultDiv.style.color = "red";
+        }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("input-link").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
 
+        let inputSection = document.getElementById("input-section");
 
+        if (inputSection) {
+            inputSection.style.display = "block"; // Make section visible
 
-
-function cameraFlashAnimation() {
-    showLoadingAnimation();
-
-    const flash = document.createElement('div');
-    flash.style.position = 'fixed';
-    flash.style.top = '0';
-    flash.style.left = '0';
-    flash.style.width = '100%';
-    flash.style.height = '100%';
-    flash.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-    flash.style.zIndex = '9999';
-    document.body.appendChild(flash);
-    
-    setTimeout(() => {
-        document.body.removeChild(flash);
-    }, 300); // Flash duration
-}
-
-document.getElementById('checkButton').addEventListener('click', function() {
-    cameraFlashAnimation();
-    hideLoadingAnimation(); // Hide loading animation on button click
+            // Delay scrolling slightly to allow rendering
+            setTimeout(() => {
+                inputSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 100);
+        }
+    });
 });
-
-
-// Canvas loading animation
-const canvas = document.getElementById('loadingCanvas');
-const ctx = canvas.getContext('2d');
-
-function drawLoadingAnimation() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#4169E1'; // Royal blue color
-    ctx.beginPath();
-    ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = '#fff';
-    ctx.stroke();
-}
-
-setInterval(drawLoadingAnimation, 1000); // Redraw every second
