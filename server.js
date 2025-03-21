@@ -7,7 +7,8 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config(); // Load environment variables from .env file
 
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3001; 
+
 
 
 // Replace with your Google Safe Browsing API key
@@ -45,6 +46,14 @@ app.post('/check-url', async (req, res) => {
         res.status(500).json({ error: 'Error checking URL. Please try again later.' });
 
     }
+});
+
+app.get('/', (req, res) => {
+const path = require('path');
+console.log('Resolved path:', path.join(__dirname, 'public', 'index.html'));
+res.sendFile(path.join(__dirname, 'public', 'index.html'));
+
+
 });
 
 app.listen(PORT, () => {
