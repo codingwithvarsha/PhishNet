@@ -113,7 +113,7 @@ header .icons a:hover{
 }
 /* Input Section Styling */
 #inputSection {
-    display: none;
+    display: block;
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
     padding: 50px 20px;
@@ -206,3 +206,143 @@ input#urlInput {
         padding: 2rem;
     }
 }
+
+/* //Full-screen Input Section  */
+#inputSection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 425px;
+    background: rgba(0, 0, 0, 0.98);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 10000;
+}
+
+#inputSection.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.link-checker {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.link-checker button {
+    padding: 12px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background: var(--pink);
+    color: white;
+    cursor: pointer;
+}
+
+.link-checker button:hover {
+    background: white;
+    color: var(--pink);
+}
+
+.back-btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 1.5rem;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+body.input-active header,
+body.input-active .home {
+    display: none;
+}
+
+.link-checker button:hover {
+    background: white;
+    color: var(--pink);
+}
+
+.back-btn:hover {
+    background: var(--pink);
+    color: white;
+} 
+#inputSection {
+    display: none; /* Initially hidden */
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+
+    /* Centering */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Extra Styles */
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--pink);
+}
+
+/* Ensure input and button look better */
+#urlInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.link-checker button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.link-checker input {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 90px;
+}
+#checkButton{
+    margin-left: 80px;
+}
+
+/* Ensure proper spacing in the container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* Center the input field and button */
+.link-checker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+}
+
+/* Button styling */
+.link-checker button {
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+

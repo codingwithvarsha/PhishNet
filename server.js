@@ -9,14 +9,17 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Root route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-
 });
 
 // Google Safe Browsing API key
@@ -30,7 +33,7 @@ app.post('/check', async (req, res) => {
     try {
         const response = await axios.post(`https://safebrowsing.googleapis.com/v4/threatMatches:find?key=${GOOGLE_API_KEY}`, {
             client: {
-                clientId: "yourcompanyname",
+                clientId: "PhishNet",
                 clientVersion: "1.0.0"
             },
             threatInfo: {
@@ -41,13 +44,15 @@ app.post('/check', async (req, res) => {
             }
         });
 
+        console.log("GOOGLE API RESPONSE:", response.data);   //debugging log
+
         if (response.data && response.data.matches) {
             res.json({ isPhishing: true });
         } else {
             res.json({ isPhishing: false });
         }
     } catch (error) {
-        console.error(error);
+        console.error("Erroe from API", error.response ? error.response.data : error.message);
         res.status(500).json({ error: 'Error checking URL' });
     }
 });

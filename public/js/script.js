@@ -19,8 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
     checkButton.addEventListener("click", async function () {
         const url = urlInput.value.trim();
         if (!url) {
+            if(resultDiv){
             resultDiv.textContent = "Please enter a URL.";
             resultDiv.style.color = "red";
+            }
             return;
         }
 
@@ -55,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("input-link").addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default link behavior
 
-        let inputSection = document.getElementById("input-section");
+        let inputSection = document.getElementById("inputSection");
 
         if (inputSection) {
             inputSection.style.display = "block"; // Make section visible
@@ -66,4 +68,25 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 100);
         }
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const getStartedBtn = document.getElementById("getStartedBtn");
+    const inputSection = document.getElementById("inputSection");
+    const backButton = document.getElementById("backButton");
+
+    getStartedBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        inputSection.classList.add("active");
+        document.body.classList.add("input-active"); // Hide everything else
+    });
+
+    backButton.addEventListener("click", function () {
+        inputSection.classList.remove("active");
+        document.body.classList.remove("input-active"); // Show everything again
+    });
+});
+document.getElementById("getStartedBtn").addEventListener("click", function(event) {
+    event.preventDefault();
+    document.getElementById("inputSection").style.display = "block";
 });
