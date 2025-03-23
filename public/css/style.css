@@ -166,7 +166,7 @@ input#urlInput {
         font-size: 55%;
     }
     header{
-        padding: 50%;
+        padding: 2rem;
     }
     section{
         padding: 2rem;
@@ -180,14 +180,14 @@ input#urlInput {
         position: absolute;
         top: 100%;left: 0;right: 0;
         background-image: #eee;
-        border-top: .1rem solid regba(0,0,0,0.1);
+        border-top: .1rem solid rgba(0,0,0,0.1);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
     header .navbar a{
         margin:1.5rem;
         padding: 1.5rem;
         background: #fff;
-        border: .1rem solid regba(0,0,0,0.1);
+        border: .1rem solid rgba(0,0,0,0.1);
         display: block;
     }
     .home .content h3{
@@ -208,23 +208,6 @@ input#urlInput {
 }
 
 /* //Full-screen Input Section  */
-#inputSection {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 425px;
-    background: rgba(0, 0, 0, 0.98);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    z-index: 10000;
-}
 
 #inputSection.active {
     opacity: 1;
@@ -318,7 +301,7 @@ body.input-active .home {
     margin-bottom: 10px;
     margin-left: 90px;
 }
-#checkButton{
+.checkButton{
     margin-left: 80px;
 }
 
@@ -345,4 +328,3 @@ body.input-active .home {
     padding: 10px;
     text-align: center;
 }
-
