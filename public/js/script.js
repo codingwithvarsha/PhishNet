@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
         resultDiv.style.color = "black";
 
         try {
-            const response = await fetch('/check-url', {
+            const response = await fetch('/check', {
+
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,23 +71,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const getStartedBtn = document.getElementById("getStartedBtn");
-    const inputSection = document.getElementById("inputSection");
-    const backButton = document.getElementById("backButton");
-
-    getStartedBtn.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default anchor behavior
-        inputSection.classList.add("active");
-        document.body.classList.add("input-active"); // Hide everything else
-    });
-
-    backButton.addEventListener("click", function () {
-        inputSection.classList.remove("active");
-        document.body.classList.remove("input-active"); // Show everything again
-    });
-});
-document.getElementById("getStartedBtn").addEventListener("click", function(event) {
-    event.preventDefault();
-    document.getElementById("inputSection").style.display = "block";
-});

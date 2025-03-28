@@ -1,5 +1,6 @@
-const db = require("./database"); // Import the database connection
-const { analyzeTextHeuristics } = require("./NLP"); // Import the NLP function
+const db = require('./database'); // Import the database connection
+const { analyzeTextHeuristics } = require('./NLP'); // Import the NLP function
+
 
 async function checkPhishing(url) {
     // Check the URL using heuristic analysis

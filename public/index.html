@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhishNet</title>
     <link rel="stylesheet" href="css/style.css">
+   
+
 </head>
 <body>
     <!-- Header Section -->
@@ -36,19 +38,19 @@
             
         <div class="detector-container">    
             <div class="link-checker">
-                <input type="text" id="urlInput" placeholder="Enter URL to check">
-                <button class="checkButton">Check URL</button>
-                <div id="result"></div>
+                <input type="text" id="urlInput" placeholder="Enter URL">
+                <button id="checkButton">Check</button></div>
             </div>
         </div>
 
             <!-- Back Button -->
             <button id="backButton" class="btn back-btn">Back</button>
+            <button id="checkButton">Check</button>
+            <div id="result"></div> 
 
             <div id="scamCount" style="display: none;"></div>
         </div>
     </section>
-
-    <script src="js/script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
